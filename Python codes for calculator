@@ -1,0 +1,67 @@
+import math
+
+def display_menu():
+    print("\nBasic Calculator")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Second Power")
+    print("6. Square Root")
+    print("7. Exit")
+
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def main():
+    while True:
+        display_menu()
+        choice = input("Choose an option (1-7): ")
+        
+        if choice == '1':  # Addition
+            num1 = get_number("Enter first number: ")
+            num2 = get_number("Enter second number: ")
+            print(f"Result: {num1} + {num2} = {num1 + num2}")
+        
+        elif choice == '2':  # Subtraction
+            num1 = get_number("Enter first number: ")
+            num2 = get_number("Enter second number: ")
+            print(f"Result: {num1} - {num2} = {num1 - num2}")
+        
+        elif choice == '3':  # Multiplication
+            num1 = get_number("Enter first number: ")
+            num2 = get_number("Enter second number: ")
+            print(f"Result: {num1} * {num2} = {num1 * num2}")
+        
+        elif choice == '4':  # Division
+            num1 = get_number("Enter numerator: ")
+            num2 = get_number("Enter denominator: ")
+            if num2 == 0:
+                print("Error: Division by zero is not allowed.")
+            else:
+                print(f"Result: {num1} / {num2} = {num1 / num2}")
+        
+        elif choice == '5':  # Second Power
+            num = get_number("Enter a number: ")
+            print(f"Result: {num}^2 = {num ** 2}")
+        
+        elif choice == '6':  # Square Root
+            num = get_number("Enter a number: ")
+            if num < 0:
+                print("Error: Cannot compute square root of a negative number.")
+            else:
+                print(f"Result: sqrt({num}) = {math.sqrt(num)}")
+        
+        elif choice == '7':  # Exit
+            print("Exiting the calculator. Goodbye!")
+            break
+        
+        else:
+            print("Invalid choice. Please select a valid option (1-7).")
+
+
+main()
